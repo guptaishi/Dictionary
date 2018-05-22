@@ -1,8 +1,12 @@
 # fanhapp
 It is an English dictonary using trie tree with features like:
 
-insertion into the tree
+Insert the word into the tree
   
-search the word in the tree,
+Search the word in the tree
 
-auto-suggestion of the word 
+Delete the word from the dictionary
+
+Auto-suggestion of the word 
+
+Display the words in alphabetical order
