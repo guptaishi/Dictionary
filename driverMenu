@@ -1,0 +1,105 @@
+int main()
+{
+    dictionary d;
+    struct word w;
+    string data;
+        struct node *root=d.getnode();
+        d.fileRead(root);
+
+   while(1)
+{
+
+       int a;
+        cout << "\nWhat would you like to do?\n";
+        cout << "\n";
+        cout << "1. Insert a word.\n";
+        cout << "2. Search a word.\n";
+        cout << "3. Delete a word.\n";
+        cout << "4. Print entries of dictionary in alphabetical order.\n";
+        cout << "5. Prefix search.\n";
+        cout << "\n";
+
+        fflush(stdin);
+        string word;
+
+       cin>>a;
+       switch(a)
+{
+   case 1:
+    {
+        cout<<"Enter the word \t ------>"<<endl;
+        cin>>w.key;
+        cout<<endl<<"Enter the meaning \t ------>";
+        cin>>w.meaning;
+        string bigstring;
+        bigstring=w.key+"."+w.meaning;
+
+        ofstream myfile2;
+        myfile2.open("myfile2.dat",ios::app);
+        myfile2<<bigstring;
+        myfile2<<endl;
+        ofstream  myfile;
+        myfile.open("myfile.dat",ios::app);
+        myfile<<w.key;
+        myfile<<endl;
+        d.insert(root,w.key);
+
+    myfile.close();
+    myfile2.close();
+        break;
+    }
+
+
+    case 2:
+     {
+
+        cout<<"enter word to be search \t ---------->";
+        cin>>word;
+        d.search(root,word);
+        break;
+     }
+
+    case 3:
+     {
+        cout << "Which word would you like to delete? ";
+
+        cin >> word;
+        if(d.deleteWord(root, word))
+        {
+        cout << word << " has been successfully deleted from the Dictionary.\n";
+        }
+
+        else
+        {
+        cout << "No such word exists in the Dictionary.\n";
+        }
+
+        break;
+        }
+
+
+        case 4:
+        {
+
+        char allWords[50];
+        d.alphabeticalOrder(root, allWords, 0);
+        cout << "\n";
+
+        break;
+        }
+
+        case 5:
+        {
+        cout << "Enter the word you would like to use as a prefix: ";
+        cin >> word;
+        cout << "\n";
+
+        d.prefix_search(root, word);
+
+        break;
+        }
+}
+}
+
+return 0;
+}
