@@ -1,4 +1,4 @@
-# FanHapp
+# Dictionary
 It is an English dictonary using trie tree with features like:
 
 Insert the word into the tree
