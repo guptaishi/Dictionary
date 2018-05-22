@@ -1,0 +1,41 @@
+//function for searching the word
+
+void dictionary::search(struct node * root,string var)
+{
+    struct node * temp=root;
+    int index;
+    for(int i=0;i<var.length();i++)
+    {
+        index=var[i]-'a';
+        if(root->children[index]==NULL)
+            {
+                cout<<"word not found";
+                return;
+            }
+        root=root->children[index];
+    }
+
+string bigstring,str;
+char c[200],a[200];
+int i;
+
+    ifstream myfile2;
+    myfile2.open("myfile2.dat");
+    while(!myfile2.eof())
+        {
+        getline(myfile2,bigstring);
+        i=bigstring.find(".");
+        str=bigstring.substr(0,i);
+        //c=str;
+
+        strcpy(c, str.c_str());
+        //a=var;
+        strcpy(a, var.c_str());
+            if(strcmp(a ,c)==0)
+                {
+                cout<<endl<<"meaning of word  "<<var<<"\t ------->"<<bigstring.substr(i+1)<<endl;
+                }
+         }
+
+        myfile2.close();
+}
