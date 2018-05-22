@@ -1,0 +1,15 @@
+void dictionary::insert(struct node *root,string m)
+{
+    struct node *temp=root;
+    int index;
+    for(int i=0;i<m.length();i++)
+    {
+        index=m[i]-'a';
+        if(temp->children[index]==NULL)
+            {
+                temp->children[index]=getnode();
+            }
+        temp=temp->children[index];
+    }
+    temp->endofword=true;
+}
