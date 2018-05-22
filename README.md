@@ -11,7 +11,7 @@ Auto-suggestion of the word
 
 Display the words in alphabetical order
 
-# Pre-requsites
+# Pre-requisites
 We need to create two files. One for the words and the other for their meanings.
 The sample fles - "myfile" and "myfile2" have been uploaded.
 
