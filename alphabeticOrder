@@ -1,0 +1,26 @@
+//functiion to print in alphabetical order
+
+void dictionary:: alphabeticalOrder(struct node* root, char allWords[], int index)
+{
+    struct node* temp = root;
+
+    if(temp != NULL && temp->endofword == true)
+        {
+        for(int j = 0; j < index; j++)
+         {
+            cout << allWords[j];
+         }
+
+        cout << " ";
+        cout << "\n";
+        }
+
+    for(int i = 0; i < alphabet_size; i++)
+        {
+        if(temp->children[i] != NULL)
+        {
+            allWords[index] = 'a' + i;
+            alphabeticalOrder(temp->children[i], allWords, index + 1);
+        }
+        }
+}
