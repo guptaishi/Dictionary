@@ -1,0 +1,43 @@
+// function auto-suggests by printing the results of a given prefix search
+
+void dictionary:: print_prefix_search(struct node* root, char allWords[], int index, string prefix)
+{
+    struct node* temp = root;
+
+    if(temp != NULL && temp->endofword == true)
+        {
+        cout << prefix;
+
+        for(int j = 0; j < index; j++)
+            {
+            cout << allWords[j];
+            }
+
+        cout << " ";
+        cout << "\n";
+        }
+
+    for(int i = 0; i < alphabet_size; i++)
+        {
+        if(temp->children[i] != NULL)
+        {
+            allWords[index] = 'a' + i;
+            print_prefix_search(temp->children[i], allWords, index + 1, prefix);
+        }
+        }
+}
+
+// function to search the words that match the prefix entered
+void dictionary::prefix_search(struct node* root, string prefix)
+{
+    struct node* temp = root;
+
+    for(int i = 0; i < prefix.length(); i++)
+        {
+        int index = (prefix[i]-'a');
+        temp = temp->children[index];
+        }
+
+    char allWords[50];
+    print_prefix_search(temp, allWords, 0, prefix);
+}
